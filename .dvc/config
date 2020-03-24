@@ -1,0 +1,4 @@
+['remote "myremote"']
+url = D:\Kaggle\MachineLearning_CI_CD\dvc
+[core]
+remote = myremote
