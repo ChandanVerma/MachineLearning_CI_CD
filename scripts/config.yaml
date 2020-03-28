@@ -4,3 +4,8 @@ PATH:
   MODELS_PATH: D:\Kaggle\MachineLearning_CI_CD\models
   DATA_PATH: D:\Kaggle\MachineLearning_CI_CD\data
   ANALYSIS_REPORTS_PATH: D:\Kaggle\MachineLearning_CI_CD\documents\Analysis\
+  PIPELINE_EXTERNALS_PATH: D:\Kaggle\MachineLearning_CI_CD\externals\
+  LOG_PATH: D:\Kaggle\MachineLearning_CI_CD\logs\
+
+LASSO:
+  ALPHA: 0.005
