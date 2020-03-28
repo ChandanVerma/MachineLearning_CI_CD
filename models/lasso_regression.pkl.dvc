@@ -1,0 +1,5 @@
+md5: fff04c32d60cf98911f6438e5e023d2b
+outs:
+- cache: true
+  md5: ded03c8a858d195065e262441d591c58
+  path: lasso_regression.pkl
