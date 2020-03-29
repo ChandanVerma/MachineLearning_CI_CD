@@ -19,7 +19,7 @@ from math import sqrt
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import Lasso
+from sklearn.linear_model import Lasso, LinearRegression
 from sklearn.feature_selection import SelectFromModel
 from sklearn.externals import joblib
 from sklearn.model_selection import train_test_split
@@ -163,7 +163,8 @@ def main():
 
     logging.info('TRAINING THE MODEL !!!')
     logger.info('TRAINING THE MODEL !!!')
-    lin_model = Lasso(alpha = config['LASSO']['ALPHA'], random_state = 0)
+    #lin_model = Lasso(alpha = config['LASSO']['ALPHA'], random_state = 0)
+    lin_model = LinearRegression()
     lin_model.fit(X_train, y_train)
 
     train_mse = mean_squared_error(y_train, lin_model.predict(X_train))
