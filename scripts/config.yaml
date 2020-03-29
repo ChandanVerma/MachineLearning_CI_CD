@@ -34,4 +34,5 @@ GRADIENT_BOOSTING:
   learning_rate: 0.01
   loss: ls
 
-
+XGBOOST:
+  MODEL_FILE_NAME: xgboost

@@ -172,9 +172,10 @@ def main():
     #lin_model = RandomForestRegressor(max_depth= config['RANDOM_FOREST']['max_depth'], random_state = 0)
     #lin_model = SVR(C = config['SVR']['C'], epsilon = config['SVR']['epsilon'])
     #lin_model = DecisionTreeRegressor(random_state= 0)
-    lin_model = GradientBoostingRegressor(n_estimators = config['GRADIENT_BOOSTING']['n_estimators'],
-                                            max_depth = config['GRADIENT_BOOSTING']['max_depth'], min_samples_split = config['GRADIENT_BOOSTING']['min_samples_split'],
-                                            learning_rate = config['GRADIENT_BOOSTING']['learning_rate'], loss = config['GRADIENT_BOOSTING']['loss'])
+    #lin_model = GradientBoostingRegressor(n_estimators = config['GRADIENT_BOOSTING']['n_estimators'],
+    #                                        max_depth = config['GRADIENT_BOOSTING']['max_depth'], min_samples_split = config['GRADIENT_BOOSTING']['min_samples_split'],
+    #                                        learning_rate = config['GRADIENT_BOOSTING']['learning_rate'], loss = config['GRADIENT_BOOSTING']['loss'])
+    lin_model = XGBRegressor()
     lin_model.fit(X_train, y_train)
 
     train_mse = mean_squared_error(y_train, lin_model.predict(X_train))
@@ -187,7 +188,7 @@ def main():
 
     logging.info('SAVING THE MODEL !!!')
     logger.info('SAVING THE MODEL !!!')
-    joblib.dump(lin_model, os.path.join(config['PATH']['MODELS_PATH'], '{}.pkl'.format(config['GRADIENT_BOOSTING']['MODEL_FILE_NAME'])))
+    joblib.dump(lin_model, os.path.join(config['PATH']['MODELS_PATH'], '{}.pkl'.format(config['XGBOOST']['MODEL_FILE_NAME'])))
 
     logger.info('train_mse:{}  train_rmse:{} train_mae:{}', np.round(train_mse, 4) , np.round(train_rmse, 4) , np.round(train_mae, 4))
     logger.info('test_mse: {}  test_rmse: {} test_mae: {}', np.round(test_mse, 4) , np.round(test_rmse, 4) , np.round(test_mae, 4))
