@@ -21,6 +21,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import Lasso, LinearRegression
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.svm import SVR
 from sklearn.feature_selection import SelectFromModel
 from sklearn.externals import joblib
 from sklearn.model_selection import train_test_split
@@ -166,7 +167,8 @@ def main():
     logger.info('TRAINING THE MODEL !!!')
     #lin_model = Lasso(alpha = config['LASSO']['ALPHA'], random_state = 0)
     #lin_model = LinearRegression()
-    lin_model = RandomForestRegressor(max_depth= config['RANDOM_FOREST']['max_depth'], random_state = 0)
+    #lin_model = RandomForestRegressor(max_depth= config['RANDOM_FOREST']['max_depth'], random_state = 0)
+    lin_model = SVR(C = config['SVR']['C'], epsilon = config['SVR']['epsilon'])
     lin_model.fit(X_train, y_train)
 
     train_mse = mean_squared_error(y_train, lin_model.predict(X_train))
@@ -179,7 +181,7 @@ def main():
 
     logging.info('SAVING THE MODEL !!!')
     logger.info('SAVING THE MODEL !!!')
-    joblib.dump(lin_model, os.path.join(config['PATH']['MODELS_PATH'], '{}.pkl'.format(config['RANDOM_FOREST']['MODEL_FILE_NAME'])))
+    joblib.dump(lin_model, os.path.join(config['PATH']['MODELS_PATH'], '{}.pkl'.format(config['SVR']['MODEL_FILE_NAME'])))
 
     logger.info('train_mse:{}  train_rmse:{} train_mae:{}', np.round(train_mse, 4) , np.round(train_rmse, 4) , np.round(train_mae, 4))
     logger.info('test_mse: {}  test_rmse: {} test_mae: {}', np.round(test_mse, 4) , np.round(test_rmse, 4) , np.round(test_mae, 4))

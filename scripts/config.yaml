@@ -18,3 +18,9 @@ RANDOM_FOREST:
   MODEL_FILE_NAME: random_forest
   max_depth: 2
 
+SVR:
+  MODEL_FILE_NAME: svr
+  C: 1.0
+  epsilon: 0.2
+
+

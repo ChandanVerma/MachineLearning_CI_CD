@@ -1,0 +1,5 @@
+md5: 05db6f158c1b145de9ed383116404e53
+outs:
+- cache: true
+  md5: 1c5671183ecad1c4d6d4581cd9f4bb47
+  path: random_forest.pkl
