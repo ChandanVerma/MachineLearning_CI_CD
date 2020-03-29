@@ -1,0 +1,5 @@
+md5: 28d67c717c2c6e55de70decdb6a80a2a
+outs:
+- cache: true
+  md5: 95fa6a129eac3592a01bc4308dbfad9e
+  path: linear_regression.pkl
