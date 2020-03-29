@@ -1,0 +1,5 @@
+md5: 6da83d691e29ffafe6afdd8c7541d722
+outs:
+- cache: true
+  md5: 4e2873750e92d8b33cf6a7dfb45b70ae
+  path: svr.pkl
