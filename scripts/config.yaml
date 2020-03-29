@@ -13,3 +13,8 @@ LASSO:
 
 LINEAR:
   MODEL_FILE_NAME: linear_regression
+
+RANDOM_FOREST:
+  MODEL_FILE_NAME: random_forest
+  max_depth: 2
+
