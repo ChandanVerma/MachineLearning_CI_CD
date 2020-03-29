@@ -22,6 +22,7 @@ SVR:
   MODEL_FILE_NAME: svr
   C: 1.0
   epsilon: 0.2
+  kernel: rbf
 
 DECISION_TREE:
   MODEL_FILE_NAME: decision_tree
@@ -36,3 +37,7 @@ GRADIENT_BOOSTING:
 
 XGBOOST:
   MODEL_FILE_NAME: xgboost
+
+
+STACKING:
+  MODEL_FILE_NAME: stacked_model
