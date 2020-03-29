@@ -177,7 +177,7 @@ def main():
 
     logging.info('SAVING THE MODEL !!!')
     logger.info('SAVING THE MODEL !!!')
-    joblib.dump(lin_model, os.path.join(config['PATH']['MODELS_PATH'], 'lasso_regression.pkl'))
+    joblib.dump(lin_model, os.path.join(config['PATH']['MODELS_PATH'], '{}.pkl'.format(config['LINEAR']['MODEL_FILE_NAME'])))
 
     logger.info('train_mse:{}  train_rmse:{} train_mae:{}', np.round(train_mse, 4) , np.round(train_rmse, 4) , np.round(train_mae, 4))
     logger.info('test_mse: {}  test_rmse: {} test_mae: {}', np.round(test_mse, 4) , np.round(test_rmse, 4) , np.round(test_mae, 4))

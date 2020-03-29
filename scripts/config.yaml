@@ -9,3 +9,7 @@ PATH:
 
 LASSO:
   ALPHA: 0.005
+  MODEL_FILE_NAME: lasso_regression
+
+LINEAR:
+  MODEL_FILE_NAME: linear_regression
