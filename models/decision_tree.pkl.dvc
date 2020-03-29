@@ -1,0 +1,5 @@
+md5: 7fc24835f9c2fec02f2bad4357096214
+outs:
+- cache: true
+  md5: 7ca7a15e4a9fe2c1ad0b8b86c949c649
+  path: decision_tree.pkl
