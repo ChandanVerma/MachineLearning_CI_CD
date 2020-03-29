@@ -5,3 +5,4 @@
 /decision_tree.pkl
 /gradient_boosting.pkl
 /xgboost.pkl
+/stacked_model.pkl

@@ -1,0 +1,5 @@
+md5: 475b944d2a1eb0f8eabeea2c47c6448b
+outs:
+- cache: true
+  md5: 696685856bbdd7445d66963d642c0542
+  path: stacked_model.pkl
