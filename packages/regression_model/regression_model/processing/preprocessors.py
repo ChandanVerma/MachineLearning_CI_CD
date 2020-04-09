@@ -57,7 +57,7 @@ class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
 
         self.reference_variable = reference_variable
 
-    def fit(self, X: pd.Dataframe, y: pd.Series = None):
+    def fit(self, X: pd.DataFrame, y: pd.Series = None):
         return self
 
     def transform(self, X:pd.DataFrame) -> pd.DataFrame:

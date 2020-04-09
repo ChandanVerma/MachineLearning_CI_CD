@@ -6,7 +6,7 @@ from regression_model.config import config
 from regression_model.config import logging_config
 
 import logging
-import typing 
+import typing as t
 
 _logger = logging.getLogger(__name__)
 
