@@ -4,23 +4,22 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  test_regression_model:
-    working_directory: ~/project
+  test_regression_model_py36:
     docker:
-      - image: circleci/python:3.7.2
+      - image: circleci/python:3.6.9
+    working_directory: ~/project/packages/regression_model
     steps:
-      - checkout
+      - checkout:
+          path: ~/project
       - run:
-          name: Running tests
+          name: Run tests with Python 3.6
           command: |
-          virtualenv venv
-          ./ venv/bin/activate
-          pip install --upgrade pip
-          pip install -r packages/regression_model/requirements.txt
-          py.test -vv packages/regression_model/tests
+            sudo pip install --upgrade pip
+            pip install --user tox
+            tox -e py36
 
 workflows:
   version: 2.1
   test-all:
     jobs:
-      - test_regression_model
+      - test_regression_model_py36
