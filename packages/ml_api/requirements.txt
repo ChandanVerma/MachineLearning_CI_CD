@@ -1,0 +1,6 @@
+# api
+flask == 1.0.2
+
+# local regression model package
+# update with our local path
+-e "D:\Kaggle\MachineLearning_CI_CD\packages\regression_model"
