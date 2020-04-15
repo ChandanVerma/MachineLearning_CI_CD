@@ -8,7 +8,7 @@ class CategoricalImputer(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables = None) -> None:
         if not isinstance(variables, list):
-            self.variables = variables
+            self.variables = [variables]
         else:
             self.variables = variables
 
@@ -106,8 +106,8 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
 
     
     def fit(self, X:pd.DataFrame, y:pd.Series = None):
-        temp = pd.concat(X, y, axis = 1)
-        temp.columns = X.columns + ['target']
+        temp = pd.concat([X, y], axis = 1)
+        temp.columns = list(X.columns) + ['target']
 
         self.encoder_dict_ = {}
 
@@ -135,7 +135,7 @@ class DropUnecessaryFeatures(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables_to_drop = None):
         
-        self.variables_to_drop = variables_to_drop
+        self.variables_to_drop = [variables_to_drop]
 
     def fit(self, X: pd.DataFrame, y:pd.Series = None):
         return self

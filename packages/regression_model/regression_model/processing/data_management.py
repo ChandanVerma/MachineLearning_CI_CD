@@ -41,8 +41,8 @@ def load_pipeline(*, file_name) -> Pipeline:
 
 
 def remove_old_pipeline(*, files_to_keep: t.List[str]) -> None:
-    do_not_delete = files_to_keep + ['__init__.py']
-    for model_file in config.TRAINED_MODEL_DIR:
+    do_not_delete = list(files_to_keep) + ['__init__.py']
+    for model_file in config.TRAINED_MODEL_DIR.iterdir():
         if model_file.name not in do_not_delete:
             model_file.unlink()
 

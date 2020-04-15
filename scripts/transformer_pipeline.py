@@ -3,8 +3,6 @@ import pandas as pd
 
 from sklearn.base import BaseEstimator, TransformerMixin
 
-from regression_model.processing import errors
-
 ## Categorical imputation
 class CategoricalImputer(BaseEstimator, TransformerMixin):
 
