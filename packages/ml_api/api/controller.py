@@ -28,7 +28,7 @@ def predict():
 
         input_data, errors = validate_inputs(input_json=json_data)
 
-        result = make_prediction(input_data=json_data)
+        result = make_prediction(input_data=input_data)
         _logger.info(f'Outputs: {result}')
 
         predictions = result.get('predictions')[0]
