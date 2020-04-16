@@ -45,9 +45,9 @@ workflows:
     jobs:
       - train_and_upload_regression_model
       - test_regression_model_py36
-      - test_regression_model_py36:
+      - train_and_upload_regression_model:
           requires:
-            -train_and_upload_regression_model
+            - test_regression_model_py36
 
 
 
