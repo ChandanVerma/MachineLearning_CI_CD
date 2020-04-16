@@ -18,8 +18,36 @@ jobs:
             pip install --user tox
             tox -e py36
 
+  train_and_upload_regression_model:
+    docker:
+      - image: circleci/python:3.6.9
+    working_directory: ~/project/packages/regression_model
+    steps:
+      - checkout:
+          path: ~/project
+      - run:
+          name: Setup venv
+          command: |
+            virtualenv venv
+            . venv/bin/activate
+            pip install -r packages/regression_model/requirements.txt
+      - run:
+          name: Publish model
+          command: |
+            . venv/bin/activate
+            chmod +x ./scripts/publish_model.sh
+            PYTHONPATH= ./packages/regression_model python3 packages/regression_model/regression_model/train_pipeline.py
+            ./scripts/publish_model.sh ./packages/regression_model/
+
 workflows:
   version: 2.1
   test-all:
     jobs:
+      - train_and_upload_regression_model
       - test_regression_model_py36
+      - test_regression_model_py36:
+            requires:
+              -train_and_upload_regression_model
+
+
+
