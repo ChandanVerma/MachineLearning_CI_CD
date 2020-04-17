@@ -36,12 +36,12 @@ jobs:
           command: |
             . venv/bin/activate
             chmod +x ~/project/scripts/publish_model.sh
-            PYTHONPATH=. python3 ~/project/packages/regression_model/regression_model/train_pipeline.py
+            python3 ~/project/packages/regression_model/regression_model/train_pipeline.py
       - run: 
           name: Publish model to Gemfury
           command: |
             . venv/bin/activate
-            chmod +x ./scripts/publish_model.sh
+            chmod +x ~/project/scripts/publish_model.sh
             ~/project/scripts/publish_model.sh ~/project/packages/regression_model/
 
 workflows:
