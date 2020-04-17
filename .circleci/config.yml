@@ -19,7 +19,9 @@ jobs:
             tox -e py36
 
   train_and_upload_regression_model:
-    <<: *defaults
+    docker:
+      - image: circleci/python:3.6.9
+    working_directory: ~/project/packages/regression_model
     steps:
       - checkout
       - *prepare_venv
