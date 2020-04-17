@@ -36,7 +36,7 @@ jobs:
           command: |
             . venv/bin/activate
             chmod +x ~/project/scripts/publish_model.sh
-            PYTHONPATH= ~/project/packages/regression_model/ python3 ~/project/packages/regression_model/regression_model/train_pipeline.py
+            PYTHONPATH= ~/project/packages/regression_model/ python ~/project/packages/regression_model/regression_model/train_pipeline.py
             ~/project/scripts/publish_model.sh ~/project/packages/regression_model/
 
 workflows:
