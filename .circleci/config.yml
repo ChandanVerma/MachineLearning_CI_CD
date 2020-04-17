@@ -24,7 +24,7 @@ jobs:
     working_directory: ~/project/packages/regression_model
     steps:
       - checkout
-      - *prepare_venv
+          path: ~/project
       - run: 
           name: Install requirements
           command: |
