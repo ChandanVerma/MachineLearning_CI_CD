@@ -19,25 +19,27 @@ jobs:
             tox -e py36
 
   train_and_upload_regression_model:
-    docker:
-      - image: circleci/python:3.6.9
-    working_directory: ~/project/packages/regression_model
+    <<: *defaults
     steps:
-      - checkout:
-          path: ~/project
-      - run:
-          name: Setup venv
-          command: |
-            virtualenv venv
-            . venv/bin/activate
-            pip install -r ~/project/packages/regression_model/requirements.txt
-      - run:
-          name: Publish model
+      - checkout
+      - *prepare_venv
+      - run: 
+          name: Install requirements
           command: |
             . venv/bin/activate
-            chmod +x ~/project/scripts/publish_model.sh
-            PYTHONPATH= ~/project/packages/regression_model/ python ~/project/packages/regression_model/regression_model/train_pipeline.py
-            ~/project/scripts/publish_model.sh ~/project/packages/regression_model/
+            pip install -r packages/regression_model/requirements.txt
+      - *fetch_data
+      - run: 
+          name: Train model
+          command: |
+            . venv/bin/activate
+            PYTHONPATH=./packages/regression_model python3 packages/regression_model/regression_model/train_pipeline.py
+      - run: 
+          name: Publish model to Gemfury
+          command: |
+            . venv/bin/activate
+            chmod +x ./scripts/publish_model.sh
+            ./scripts/publish_model.sh ./packages/regression_model/
 
 workflows:
   version: 2.1
