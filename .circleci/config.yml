@@ -23,7 +23,7 @@ jobs:
       - image: circleci/python:3.6.9
     working_directory: ~/project/packages/regression_model
     steps:
-      - checkout
+      - checkout:
           path: ~/project
       - run: 
           name: Install requirements
