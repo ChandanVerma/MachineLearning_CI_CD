@@ -35,8 +35,8 @@ jobs:
       - run:
           name: Train model
           command: |
-            source venv/bin/activate
-            PYTHONPATH=./packages/regression_model python3 packages/regression_model/regression_model/train_pipeline.py
+            . venv/bin/activate
+            python3 ~/project/packages/regression_model/regression_model/train_pipeline.py
       - run: 
           name: Publish model to Gemfury
           command: |
