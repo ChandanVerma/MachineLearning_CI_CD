@@ -25,6 +25,9 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - persist_to_workspace:
+          root: ~/project
+          path: .
       - run:
           name: Setup venv
           command: |
