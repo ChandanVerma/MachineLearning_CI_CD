@@ -1,6 +1,8 @@
 import numpy as np 
 from sklearn.model_selection import train_test_split
-
+import os
+import sys
+sys.path.append(os.path.abspath(os.getcwd()).resolve().parent)
 from regression_model import pipeline
 from regression_model.processing.data_management import load_dataset, save_pipeline
 from regression_model.config import config
