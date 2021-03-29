@@ -51,7 +51,7 @@ prometheus-client==0.7.1
 prompt-toolkit==3.0.3
 py==1.8.1
 py-cpuinfo==5.0.0
-Pygments==2.6.1
+Pygments==2.7.4
 pylint==2.4.4
 pymongo==3.10.1
 pyparsing==2.4.6
